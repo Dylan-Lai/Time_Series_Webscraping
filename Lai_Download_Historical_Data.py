@@ -1,11 +1,8 @@
 import yfinance as yf
-#Import the Libraries
-import math
-import pandas_datareader as web
-import numpy as np
-import pandas as pd
-from sklearn.preprocessing import MinMaxScaler
-from keras.models import Sequential
-from keras.layers import Dense, LSTM
-import matplotlib.pyplot as plt
 import datetime
+# Create Ticker variables
+goog = yf.Ticker("GOOGL")
+#Set the time range
+goog_hist = goog.history(start=datetime.datetime(2010, 1, 1),end=datetime.datetime.today())
+
+goog_hist.to_csv('Lai_Historical_Data.csv', index=True)
